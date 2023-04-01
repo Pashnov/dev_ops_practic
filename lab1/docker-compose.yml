@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  web:
+    image: httpd:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./html:/usr/local/apache2/htdocs/
+
+  checker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
